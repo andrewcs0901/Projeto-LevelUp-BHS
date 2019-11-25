@@ -1,19 +1,26 @@
 import React from 'react';
-import { TextInput } from '@bit/grommet.grommet.text-input';
 import logo from './logo.svg';
 import './App.css';
 
+{/*https://pt-br.reactjs.org/docs/state-and-lifecycle.html */}
+
 class Example extends React.Component {
-  state = { text: '' };
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      text: '' 
+    };
+  }
 
   render() {
     const { text } = this.state;
     return (
       <div>
-        <TextInput
-          value={text}
-          onChange={event => this.setState({ text: event.target.value })}
-        />
+        <input
+          type="text"
+          onChange={this.props.}
+        ></input>
       </div>
     );
   }
