@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Redirect } from 'react-router-dom';
 
 class LogIn extends React.Component {
 
@@ -6,7 +7,8 @@ class LogIn extends React.Component {
         super(props);
         
         this.state = {
-            text: '' 
+            text: '',
+            entrar: false
         };
         
         this.inputHandler = this.inputHandler.bind(this);
@@ -18,10 +20,16 @@ class LogIn extends React.Component {
     }
   
     verifyEmail (event) {
-        console.log(validarEmail(this.state.text));
+        if (validarEmail(this.state.text)){
+          this.setState ( {entrar: true});
+          RedirectPaginaIncial(this.state.entrar);
+        }
+        else {
+          this.setState ( {entrar: false} );
+        }
     }
-  
     render() {
+
     return (
       <div>
         <input
@@ -37,6 +45,16 @@ class LogIn extends React.Component {
   }
 }
 
+function RedirectPaginaIncial(emailValido) {
+  if (emailValido) {
+    return <Router><Redirect path="./Pages/PaginaInicial"/></Router>
+  }
+  else {
+    alert("Email insirido invalido");
+    return;
+  }
+}
+
 function validarEmail (email) {
 
     console.log(email);
@@ -46,7 +64,6 @@ function validarEmail (email) {
         return true;
     }
     else {
-        alert("Email insirido invalido");
         return false;
     }   
 }

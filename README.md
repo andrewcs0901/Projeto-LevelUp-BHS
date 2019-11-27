@@ -11,7 +11,7 @@ npm -v
 ```
 OBS: o npx ja vem com o npm se a versao for acima de 5.2+
 
-Depois de verificar se existe as ferramentas existem entrar no repositorio
+Depois de verificar se existe as ferramentas entrar no repositorio
 e rodar os comandos da npm
 
 ```
@@ -21,3 +21,6 @@ npm start
 
 O comando npm install ira baixar os node modules cituados no package JSON
 depois rodar o comando start para iniciar a localhost.
+
+Tem incluido um "Notes dor professionals", esse é um livro gratuido, com o conteudo
+bem resumido e simples para um bom entendimento
