@@ -33,11 +33,12 @@ class LogIn extends React.Component {
     return (
       <div>
         <input
-          type="text"
+          type="email"
           placeholder="Insira seu email"
           value={this.state.text}
           onChange={this.inputHandler}
         ></input>
+        <input type="password" placeholder="Insira sua senha" value></input>
         
         <button type="button" onClick={this.verifyEmail}>Entrar</button>
       </div>
@@ -59,8 +60,8 @@ function validarEmail (email) {
 
     console.log(email);
     
-    var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if (mailformat.test(email)) {
+    //var mailformat = `${/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/}`;
+    if (true) {
         return true;
     }
     else {
