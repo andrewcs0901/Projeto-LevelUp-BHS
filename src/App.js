@@ -6,6 +6,8 @@ import LogIn from './pages/LogIn';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/Listagem';
+import BoasVindas from './pages/boasvindas/BoasVindas'
+
 
 class App extends Component {
 
@@ -17,6 +19,10 @@ class App extends Component {
         firebaseService.getDataList('produtos', (dataReceived) => this.setState({ data: dataReceived }))
     }
 
+    handleChange(event){
+        console.log(event.target.value)
+    }
+
     render() {
         const titulo = "Minhas listas";
 
@@ -24,8 +30,10 @@ class App extends Component {
         return (
 
             <div id="container">
-                <Header titulo={titulo} />
                 <BrowserRouter>
+                    <Switch>
+                        <Route path="/" component={BoasVindas} />
+                    </Switch>
                     <Switch>
                         <Route path="/minha-conta" component={LogIn} />
                     </Switch>
