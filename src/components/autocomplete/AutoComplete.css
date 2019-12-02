@@ -1,0 +1,45 @@
+.auto-complete{
+    border: 1px solid rgb(130,130,130);
+    box-shadow: 0 0 0 1px rgba(0,0,0, 0.1),
+                0 2px 4px 1px rgba(0,0,0,.18);
+    font-size: 0.9em;
+    color: rgba(0,0,0, .65);
+    margin: 5% 10%;
+}
+
+.auto-complete input{
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    padding: 10px 5px;
+    outline: none;
+}
+
+.auto-complete ul{
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid grey; 
+  }
+
+.auto-complete ul::before{
+    content: "";
+}
+
+.auto-complete li{
+    padding: 10px 5px;
+    z-index: 99000;
+    position: relative;
+}
+
+.auto-complete li:hover{
+    background-color: rgba(130, 130, 130, 0.637)
+}
+
+@media(min-width: 720px){
+    .auto-complete{
+        width: 100%;
+    }
+   
+}
