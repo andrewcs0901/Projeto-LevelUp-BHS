@@ -1,16 +1,18 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import DelectCompoment from 'react-swipe-to-delete-component';
 
-class Item extends Component{
+export default class Item extends Component {
 
-    render(){
+    render() {
 
-        const nome = this.props
+        return (
+            <div>
+                <DelectCompoment key={this.props.id} value={this.props.id}>
+                    <p className="list-group-item-text">{this.props.text}</p>
+                </DelectCompoment>
+            </div>
 
-        return(
-            <span id={nome}></span>
         )
     }
 
 }
-
-export default Item;
