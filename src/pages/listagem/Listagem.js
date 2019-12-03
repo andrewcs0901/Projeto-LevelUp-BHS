@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import Item from '../components/Item';
-import firebaseService from '../services/FirebaseService';
+import Item from '../../components/Item';
+import firebaseService from '../../services/FirebaseService';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Header from '../components/Header';
-import Seletor from '../components/seletor/Seletor';
-import FloatButtom from '../components/floatbuttom/FloatButtom'
+import Header from '../../components/header/Header';
+import Seletor from '../../components/seletor/Seletor';
+import FloatButtom from '../../components/floatbuttom/FloatButtom'
 
 class Listagem extends Component {
 

@@ -1,0 +1,34 @@
+
+#container{
+    margin-top: 15%;
+}
+
+._Login{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 8px 0px rgba(0,0,0,0.5);
+    padding: 5%;
+    align-items: flex-start;
+    font-size: 1.3em;
+    margin-top: 10%;
+}
+
+._Input{
+    display: grid;
+    margin-top: 5%
+}
+
+input{
+    margin-top: 1%;
+}
+
+._Button{
+    margin-top: 5%
+}
+
+.logo > img{
+    width: 100%;
+    height: 10vh;
+}

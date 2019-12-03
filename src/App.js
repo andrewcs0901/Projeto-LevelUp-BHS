@@ -4,8 +4,10 @@ import firebaseService from './services/FirebaseService'
 import LogIn from './pages/LogIn';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
-import Listagem from './pages/Listagem';
+import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
+import Login from './pages/login/Login';
+import './index.css';
 
 
 class App extends Component {
@@ -24,7 +26,7 @@ class App extends Component {
             <div id="container">
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/" component={BoasVindas} />
+                        <Route path="/boas-vindas" component={BoasVindas} />
                     </Switch>
                     <Switch>
                         <Route path="/minha-conta" component={LogIn} />
@@ -34,6 +36,9 @@ class App extends Component {
                     </Switch>
                     <Switch>
                         <Route path="/nao-encontrado" component={NotFound404} />
+                    </Switch>
+                    <Switch>
+                        <Route path="/login" component={Login} />
                     </Switch>
                 </BrowserRouter>
                 <Content />
