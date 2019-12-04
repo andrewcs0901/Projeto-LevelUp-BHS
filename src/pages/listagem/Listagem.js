@@ -12,8 +12,10 @@ class Listagem extends Component {
         super();
         this.state = {
             opcaoSelecionada: 0,
-            listas:[]
         }
+        this.onSelect = this.onSelect.bind(this);
+        this.willRender = this.willRender.bind(this);
+        this.renderItem = this.renderItem.bind(this)
     }
 
     componentDidMount() {
@@ -21,39 +23,35 @@ class Listagem extends Component {
     }
 
     onSelect(event){
-        alert(event);
-        this.setState({opcaoSelecionada: event})
+        this.setState({opcaoSelecionada: event});
+        this.render();
     }
 
     willRender(items){
-        console.log(items)
-        if(this.state === 0){
+        if(this.state.opcaoSelecionada === 0){
             return this.renderItem(items);
         }
-        return this.renderItem(items
-                                .filter( 
-                                (elemento) => elemento.valor === this.state.opcaoSelecionada))
+        const array = items.filter( elemento => elemento.prioridade === this.state.opcaoSelecionada);
+        return this.renderItem(array)
     }
 
     renderItem(items){
         let array  = [];
-        console.log(items)
         items.forEach(element => {
-            array.append(
-                <Item nomeItem={element.nome} 
+            array.push(
+                <Item key={element.nome} nomeItem={element.nome} 
                 quantidade={element.quantidade} 
-                prioridade={element.prioridade} comentario={element.prioridade}/>
+                prioridade={element.prioridade} comentario={element.comentario}/>
             )
         });
-        console.log(array)
         return array;
     }
 
     render() {
 
         const items = [
-            {nome: "Batata", quantidade: "3", prioridade:3, comentario:"1234"},
-            {nome: "Arroz", quantidade:"5", prioridade:1, comentario:""},
+            {nome: "Batata", quantidade: "3", prioridade:1, comentario:"1234"},
+            {nome: "Arroz", quantidade:"5", prioridade:3, comentario:""},
             {nome: "Cebola",quantidade: "2", prioridade:2}
         ]    
 
@@ -66,7 +64,8 @@ class Listagem extends Component {
                         {nome: "Média prioridade", valor: 2}, 
                         {nome: "Baixa prioridade", valor: 3}]}
                 justify="center"
-                onSelect={this.onSelect}/>
+                onSelect={this.onSelect}
+                valorInicial={this.state.opcaoSelecionada}/>
             <div className="mensagem-arrastar" style={{textAlign: "center", padding:"2%"}}>Arraste o item para deletar</div>
             {this.willRender(items)}
  
