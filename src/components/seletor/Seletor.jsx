@@ -4,50 +4,43 @@ import { toIdentifier } from '@babel/types';
 
 export default class Seletor extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            opcao : this.props.opcaoInicial
-        }
+        this.updateState = this.updateState.bind(this);
     }
 
     renderList() {
         const { opcao } = this.props;
         if (opcao) {
             let array = [];
-            let i = 0;
             opcao.map((element) => {
-                array.push(<option 
-                            key={element.valor} 
-                            value={element.valor} 
-                            >
-                            {element.nome}
-                            </option>)
+                array.push(<option
+                    key={element.valor}
+                    value={element.valor}
+                >
+                    {element.nome}
+                </option>)
             });
             return array;
         }
     }
 
-    //onClick={this.props.onSelect.bind(this, element.valor)}
+    updateState = (event) => {
+        this.props.onSelect(parseInt(event.target.value))
 
-    handleChange(e){
-        this.setState({opcao: e.target.value})
-        return this.state.opcao
     }
 
     render() {
-        let {valorInicial} = this.props;
         return (
             <div>
-                <div style={{display:"flex", justifyContent: this.props.justify}}> 
+                <div style={{ display: "flex", justifyContent: this.props.justify }}>
                     <label htmlFor="texto">{this.props.label}</label>
-                        <select onChange={
-                            this.props.onSelect.bind(this, this.handleChange)}>
-                            {this.renderList()}
-                        </select>
+                    <select onChange={this.updateState}>
+                        {this.renderList()}
+                    </select>
                 </div>
             </div>
- 
+
 
         )
 
