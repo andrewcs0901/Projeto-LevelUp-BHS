@@ -6,7 +6,6 @@ import  './Formulario.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navigation from '../navigation/NavigationIcon';
 import icon from '../icons/error.png'
-import Seletor from '../seletor/Seletor';
 
 export default class Formulario extends Component{
 
@@ -20,9 +19,8 @@ export default class Formulario extends Component{
     render(){
         return (
             <div className="_Formulario">
-                <Navigation url={"/"} text="Voltar" icon={icon} style={ 
+                <Navigation url={this.props.url} text="Voltar" icon={icon} style={ 
                     {justifyContent: "flex-end", flexDirection: "column"}}/>
-                <Seletor value={["Alta prioridade", "Média prioridade", "Baixa prioridade"]}/>
                 <AutoComplete placeholder={"Nome do item"} items={["arroz", "abacaxi", "abacate", "pernil", "uva", "achocolatado"]}/>
                 <AutoComplete placeholder={"Categoria"}items={["laticinios", "frutas", "grãos","carnes"]}/>
                 <Contador />

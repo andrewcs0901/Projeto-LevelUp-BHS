@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import './Header.css';
 
 class Header extends Component {
 
     render() {
         const {titulo}  = this.props;
+        console.log(this.props? this.props : "")
+        const {align} = this.props? this.props : ""
         return (
-
-            <header>
+            <div>
+            <header className="_Header" style={{textAlign: align}}>
                 <h1>
                     {titulo}
                 </h1>
             </header>
+            </div>
+
         )
     }
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import Content from './components/Content';
 import firebaseService from './services/FirebaseService'
-import LogIn from './pages/LogIn';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
 import Login from './pages/login/Login';
 import './index.css';
+import AdicionarItem from './pages/adicionaritem/AdicionarItem';
 
 
 class App extends Component {
@@ -26,19 +26,20 @@ class App extends Component {
             <div id="container">
                 <BrowserRouter>
                     <Switch>
-                        <Route path="/boas-vindas" component={BoasVindas} />
+                        <Route exact path="/boas-vindas" component={BoasVindas} />
                     </Switch>
                     <Switch>
-                        <Route path="/minha-conta" component={LogIn} />
+                        <Route exact path="/minhas-listas" component={Listagem} />
                     </Switch>
                     <Switch>
-                        <Route path="/minhas-listas" component={Listagem} />
+                        <Route exact  path="/nao-encontrado" component={NotFound404} />
                     </Switch>
                     <Switch>
-                        <Route path="/nao-encontrado" component={NotFound404} />
+                        <Route exact path="/login" component={Login} />
                     </Switch>
                     <Switch>
-                        <Route path="/login" component={Login} />
+
+                        <Route  exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas"/>} />
                     </Switch>
                 </BrowserRouter>
                 <Content />

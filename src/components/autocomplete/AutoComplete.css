@@ -20,7 +20,9 @@
     text-align: left;
     margin: 0;
     padding: 0;
-    border-top: 1px solid grey; 
+    border-top: 1px solid grey;
+    position: absolute;
+    background-color: rgb(255,255,255); 
   }
 
 .auto-complete ul::before{
