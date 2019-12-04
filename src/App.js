@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Header from './components/Header';
 import Content from './components/Content';
 import firebaseService from './services/FirebaseService'
 import LogIn from './pages/LogIn';
@@ -19,14 +18,7 @@ class App extends Component {
         firebaseService.getDataList('produtos', (dataReceived) => this.setState({ data: dataReceived }))
     }
 
-    handleChange(event){
-        console.log(event.target.value)
-    }
-
     render() {
-        const titulo = "Minhas listas";
-
-
         return (
 
             <div id="container">

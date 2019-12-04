@@ -1,11 +1,12 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Item from '../components/Item';
 import firebaseService from '../services/FirebaseService';
-import Formulario from '../components/formulario/Formulario';
-import NavigationIcon from '../components/navigation/NavigationIcon';
-import BackIcon from '../components/icons/back.png';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Header from '../components/Header';
+import Seletor from '../components/seletor/Seletor';
+import FloatButtom from '../components/floatbuttom/FloatButtom'
 
-class Listagem extends Component{
+class Listagem extends Component {
 
     state = {
         listas: []
@@ -15,19 +16,21 @@ class Listagem extends Component{
         firebaseService.getDataList('produtos', (dataReceived) => this.setState({ data: dataReceived }))
     }
 
-    render(){
-        let list = [];
-        this.state.listas.forEach(item => {
-            list.push(<Item item={item.nome} />)
-        });
-
+    render() {
 
         return (<div>
-                    <NavigationIcon text={"Adicionar um novo item"} icon={BackIcon} url={"/"} 
-                                    style={{backgroundColor: "#ff5959", color:"white", 
-                                    fontSize: "1.3em", flexDirection: "row"}}/>
-                    <Formulario/>
-                </div>)
+            <Header />
+{/*             <Seletor value={[
+                {texto: "Alta prioridade",
+                id: 1}, 
+                {texto: "Média prioridade",
+                id:2}, 
+                {texto: "Baixa prioridade",
+                id: 3}]} /> */}
+            <span>Arraste o item para deletar</span>
+            <Item nome={123} />
+            <FloatButtom href="/minhas-listas"/>
+        </div>)
     }
 
 }
