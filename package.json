@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "body-scroll-lock": "^2.6.4",
     "bootstrap": "^4.4.0",
     "firebase": "^7.5.0",
     "react": "^16.12.0",
