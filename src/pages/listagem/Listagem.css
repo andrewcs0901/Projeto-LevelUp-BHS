@@ -1,0 +1,28 @@
+img.cart-img {
+    width: 80%;
+    margin: 10%;
+}
+
+div.lista-vazia-msg {
+    padding: 4%;
+    font-size: 1.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.adicionar-item {
+    color: rgb(255, 255, 255);
+    background-color: indigo;
+    padding: 1%;
+}
+
+@media (min-width: 720px) {
+    img.cart-img {
+        width: 30%;
+        margin: 0 35%;
+    }
+    .mensagem-lista-vazia{
+        margin: 3%;
+    }
+}

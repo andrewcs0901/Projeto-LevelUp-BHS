@@ -3,6 +3,7 @@
     padding: 2%;
     height: 10vh;
     flex-direction: column;
+    width: 100%;
 }
 
 ._Item span {
@@ -11,7 +12,7 @@
 
 ._Item>.comentario {
     text-align: right;
-    margin: 2em 0;
+    margin: 1.5%;
 }
 
 ._Item>.informacoes-item {
@@ -42,14 +43,15 @@
     box-sizing: border-box;
 }
 
-.Wrapper {
+.wrapper {
     position: relative;
     transition: max-height 0.5s ease;
     max-height: 1000px;
     transform-origin: top;
     overflow: hidden;
     width: 100%;
-  }
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.3)
+}
 
 .BouncingListItem {
     transition: transform 0.5s ease-out;
@@ -59,6 +61,16 @@
     background-color: #fff;
     height: 100%;
     display: flex;
+}
+
+.wrapper {
+    width: 75%;
+    margin: 5% auto;
+
+}
+
+.Background{
+    opacity: 0;
 }
 
 @media (min-width: 800px) {
