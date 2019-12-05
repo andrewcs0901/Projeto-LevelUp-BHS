@@ -17,14 +17,9 @@ export default class Input extends Component {
             input: event.target.value
         }
         )
+        this.props.onChange({tipo: this.props.type, valor: event.target.value})
     }
 
-    changeEvent = (event) => {
-        let { value } = event.target;
-        if (value.length > 0) {
-            console.warn(value)
-        }
-    }
 
     render() {
         const { type } = this.props;
@@ -41,6 +36,7 @@ export default class Input extends Component {
                     placeholder={placeholder}
                     onChange={this.handleChange}
                     value={this.state.input}
+                    minLength={this.props.length? this.props.length : "0" }
                     required
                 />
             </div>
