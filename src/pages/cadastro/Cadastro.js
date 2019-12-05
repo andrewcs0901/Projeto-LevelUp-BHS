@@ -23,11 +23,17 @@ class Login extends Component {
         if (email && password) {
             if (this.validarEmail(email) && password.length >= 8) {
                 let db = JSON.parse(localStorage.getItem("Login"))
-                if (db) {                    
-                    if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password))
-                        db.push(this.state)
-                    else
-                        alert("Email já cadastrado no sistema")
+                if (db) {
+                    if (db.filter((cadastro) => cadastro.email !== email).length) {
+                        let aux = this.state;
+                        aux.listas = [];
+                        db.push(aux)
+                    }
+                    else{
+                        alert("Email já cadastrado no sistema");
+                        return
+                    }
+                        
                 }
                 else {
                     db = []
