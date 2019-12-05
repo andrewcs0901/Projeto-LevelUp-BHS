@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
-import './Login.css';
+import './Cadastro.css';
 import cartIcon from '../../components/icons/cart-icon.svg'
 
 
@@ -22,16 +22,21 @@ class Login extends Component {
         const { password } = this.state
         if (email && password) {
             if (this.validarEmail(email) && password.length >= 8) {
-                const db = JSON.parse(localStorage.getItem("Login"));
-                if (db) {
-                    if(db.filter( (cadastro) => cadastro.email === email && cadastro.password === password).length){
-                        localStorage.setItem("Session", JSON.stringify(this.state))
-                        window.location.href = "/minhas-listas"
-                    }
-                    else alert("Erro: Email e senhas não são compatíveis")
-
+                let db = JSON.parse(localStorage.getItem("Login"))
+                if (db) {                    
+                    if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password))
+                        db.push(this.state)
+                    else
+                        alert("Email já cadastrado no sistema")
                 }
+                else {
+                    db = []
+                    db.push(this.state);
+                }
+                localStorage.setItem("Login", JSON.stringify(db))
+                window.location.href = "/minhas-listas"
             }
+
         }
     }
 
@@ -59,14 +64,14 @@ class Login extends Component {
                 <div className="logo"><img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img></div>
                 <div className="_Login">
 
-                    <header>Bem-Vindo novamente ao CompartiList!</header>
+                    <header>Esqueceu um item de compra? Não tem problema cadastre-se agora!</header>
                     <Input type="email" labelText="Email:" labelFor="email"
                         placeholder="exemplo@email.com" autocomplete="on"
                         onChange={this.onChange} />
                     <Input type="password" labelText="Senha: (minímo 8 caracteres)" labelFor="senha" placeholder="senha"
                         length="8"
                         onChange={this.onChange} />
-                    <Button text="Login" style={style} submit={this.submit} />
+                    <Button text="Cadastrar" style={style} submit={this.submit} />
                 </div>
             </>
         )

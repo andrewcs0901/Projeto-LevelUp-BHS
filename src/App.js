@@ -6,6 +6,7 @@ import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
 import Login from './pages/login/Login';
+import Cadastro from './pages/cadastro/Cadastro'
 import './index.css';
 import AdicionarItem from './pages/adicionaritem/AdicionarItem';
 
@@ -38,6 +39,7 @@ class App extends Component {
                     <Route exact path="/minhas-listas" component={Listagem} />
                     <Route exact path="/nao-encontrado" component={NotFound404} />
                     <Route exact path="/login" component={Login} />
+                    <Route exact path="/cadastro" component={Cadastro} />
                     <Route exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas" />} />
                 </BrowserRouter>
                 <Content />
