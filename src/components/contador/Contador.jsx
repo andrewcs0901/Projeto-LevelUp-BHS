@@ -8,6 +8,7 @@ export default class Contador extends Component{
         this.state = {
             valor: 0
         }
+        this.updateProps = this.updateProps.bind(this)
     }
 
     incrementa(quantidade){
@@ -37,10 +38,15 @@ export default class Contador extends Component{
         return (<button onClick={() => this.decrementa(quantidade)}>-{quantidade}</button>)
     }
 
+    updateProps(){
+        alert("ok")
+        this.props.onClick({tipo: "quantidade", text: this.state.valor})
+    }
+
     render(){
         const {valor} = this.state;
         return(
-            <div className="_Contador">
+            <div className="_Contador" onChange={this.updateProps}>
                 <label htmlFor="quantidade" className="label">Quantidade de itens</label>
                 <span className="painel">
                     <span className="botoes">

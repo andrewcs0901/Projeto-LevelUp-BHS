@@ -7,8 +7,10 @@ export default class AutoComplete extends Component{
         super(props);
         this.state = {
             suggestions: [],
-            text: ''
+            text: '',
+            name: props.name
         }
+        this.suggestionSelected = this.suggestionSelected.bind(this)
     }
 
     onTextChanged = (e) => {
@@ -23,11 +25,22 @@ export default class AutoComplete extends Component{
         this.setState( () => ({ suggestions, text: value})  );                  
     }
 
+    handleKey = (e) => {
+        if(e.key == "Enter"){
+            this.props.onClick({tipo: this.props.name, text: this.state.text})
+        }
+    } 
+
     suggestionSelected (value) {
         this.setState( () => ({
             text: value,
             suggestions: [],
         }))
+        const objInput = {
+            nome: this.props.name,
+            text: this.state.text
+        }
+        this.props.onClick({tipo: this.props.name, text: value})
     } 
 
     renderSuggestions () {
@@ -47,7 +60,11 @@ export default class AutoComplete extends Component{
         const {placeholder} = this.props;
         return(
             <div className="auto-complete">
-                <input value={text} onChange={this.onTextChanged} type="text" placeholder={placeholder} required/>
+                <input value={text} 
+                    onChange={this.onTextChanged} 
+                    type="text" placeholder={placeholder} 
+                    required
+                    onKeyPress={this.handleKey}/>
                 {this.renderSuggestions()}
             </div>
         )
