@@ -88,7 +88,9 @@ export default class Item extends Component {
                 this.wrapper.style.maxHeight = 0;
                 this.onSwiped();
                 this.wrapper.style.display = `none`;
-                alert("deletado")
+                let id = this.wrapper.id;
+                this.props.removeItem(id)
+                return
             } else {
                 this.left = 0;
             }
@@ -171,7 +173,7 @@ export default class Item extends Component {
         const cor = this.prioridade();
         return (
 
-            <div className="wrapper" ref={div => (this.wrapper = div)}>
+            <div className="wrapper" id={this.props.id} ref={div => (this.wrapper = div)}>
                 <div ref={div => (this.background = div)} className="Background">
                     {this.props.background ? this.props.background : <span>Delete</span>}
                 </div>

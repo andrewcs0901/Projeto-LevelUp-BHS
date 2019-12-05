@@ -19,7 +19,7 @@ class Login extends Component{
 
         return (
             <>
-            <div className="logo"><img src={cartIcon}></img></div>
+            <div className="logo"><img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img></div>
             <div className="_Login">
                 
                 <header>Bem-Vindo novamente ao CompartiList!</header>
