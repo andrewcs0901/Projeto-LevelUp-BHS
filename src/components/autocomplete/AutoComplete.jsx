@@ -10,7 +10,8 @@ export default class AutoComplete extends Component{
             text: '',
             name: props.name
         }
-        this.suggestionSelected = this.suggestionSelected.bind(this)
+        this.suggestionSelected = this.suggestionSelected.bind(this);
+
     }
 
     onTextChanged = (e) => {
@@ -21,12 +22,13 @@ export default class AutoComplete extends Component{
         if (value.length > 0){
             const regex = new RegExp(`${value}`,'i');
             suggestions = items.sort().filter(v => regex.test(v));
+            this.props.onClick({tipo: this.props.name, text: value})
         }
         this.setState( () => ({ suggestions, text: value})  );                  
     }
 
     handleKey = (e) => {
-        if(e.key == "Enter"){
+        if(e.key === "Enter"){
             this.props.onClick({tipo: this.props.name, text: this.state.text})
         }
     } 
@@ -36,10 +38,6 @@ export default class AutoComplete extends Component{
             text: value,
             suggestions: [],
         }))
-        const objInput = {
-            nome: this.props.name,
-            text: this.state.text
-        }
         this.props.onClick({tipo: this.props.name, text: value})
     } 
 

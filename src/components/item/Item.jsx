@@ -175,7 +175,7 @@ export default class Item extends Component {
 
             <div className="wrapper" id={this.props.id} ref={div => (this.wrapper = div)}>
                 <div ref={div => (this.background = div)} className="Background">
-                    {this.props.background ? this.props.background : <span>Delete</span>}
+                    {this.props.background ? this.props.background : <span>Excluir</span>}
                 </div>
                 <div ref={div => (this.listElement = div)}
                     onMouseDown={this.onDragStartMouse}

@@ -15,9 +15,9 @@ class Listagem extends Component {
         this.state = {
             opcaoSelecionada: 0,
             items: [
-                { nome: "Batata", quantidade: "3", prioridade: 3, comentario: "1234", id: 1},
-                { nome: "Arroz", quantidade: "5", prioridade: 1, comentario: "", id:2 },
-                { nome: "Cebola", quantidade: "2", prioridade: 2, id: 3}
+                { nome: "Batata", quantidade: "3", prioridade: 3, comentario: "1234", id: 1 },
+                { nome: "Arroz", quantidade: "5", prioridade: 1, comentario: "", id: 2 },
+                { nome: "Cebola", quantidade: "2", prioridade: 2, id: 3 }
             ]
         }
         this.onSelect = this.onSelect.bind(this);
@@ -44,6 +44,7 @@ class Listagem extends Component {
 
     renderItem(items) {
         let array = [];
+
         items.forEach(element => {
             array.push(
                 <Item key={element.nome} nomeItem={element.nome}
@@ -90,6 +91,9 @@ class Listagem extends Component {
         const { items } = this.state;
         return (<>
             <Header titulo="Minhas listas" align="center" />
+            <div>
+                <button className="salvar">Salvar</button>
+            </div>
             {this.listarItems(items)}
             <Link to="/adicionar-item"><FloatButtom /></Link>
         </>)

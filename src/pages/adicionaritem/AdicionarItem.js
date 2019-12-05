@@ -12,8 +12,8 @@ export default class AdicionarItem extends Component {
                 <Link to={this.props.url}>
                 <NavigationIcon text={"Adicionar um novo item"} icon={BackIcon}
                     style={{
-                        backgroundColor: "#ff5959", color: "white",
-                        fontSize: "1.3em", flexDirection: "row"
+                        backgroundColor: "#ff5959", color: "black",
+                        fontSize: "1.3em", flexDirection: "row",justifyContent: "space-evenly"
                     }} />
                 </Link>
  

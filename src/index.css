@@ -14,4 +14,17 @@ code {
 
 html, body, #root, #root>div {
   height: 100%;
+  color: rgba(0, 0, 0, .81)
 }
+
+input,textarea{
+  box-shadow: 0px 0px 0px 0px;
+  -webkit-transition: .35s ease-in-out;
+  transition: .35s ease-in-out;
+}
+
+input:focus, textarea:focus{
+  outline-width: 0;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, .38); 
+}
+

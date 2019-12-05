@@ -12,15 +12,16 @@ div._Contador > .label{
 }
 
 div._Contador > .painel{
-    margin-top: 15%;
+    margin-top: 10%;
     text-align: center;
-    margin: 7.5% auto;
+    display: flex;
+    justify-content: center;
 }
 
 div._Contador .campo{
-    max-width: 40%;
+    max-width: 20%;
     text-align: center;
-    margin-inline: inherit;
+    margin: 0 5%;
 }
 
 div._Contador .botoes button{
@@ -29,6 +30,13 @@ div._Contador .botoes button{
     background-color: white;
     text-align: center;
 }
+
+div._Contador span.botoes{
+    min-height: 1px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}   
 
 
 div._Contador .botoes :hover, div._Contador .botoes ::after{

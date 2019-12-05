@@ -35,7 +35,7 @@ export default class Formulario extends Component {
             <div className="_Formulario">
                 <Link to={this.props.url}>
                     <Navigation text="Voltar" icon={icon} style={
-                        { justifyContent: "flex-end", flexDirection: "column" }} />
+                        { justifyContent: "flex-end", flexDirection: "column"}} />
                 </Link>
                 <AutoComplete
                     placeholder={"Nome do item"}
@@ -50,7 +50,8 @@ export default class Formulario extends Component {
                 <Contador onClick={this.onClick}/>
                 <TextArea
                     placeHolder={"Exemplo: Preferência por marca X"}
-                    label={"(opcional) Adicione uma descrição:"} />
+                    label={"(opcional) Adicione uma descrição:"}
+                    onClick={this.onClick} />
             </div>
 
 
