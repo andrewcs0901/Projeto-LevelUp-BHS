@@ -17,6 +17,18 @@ div.lista-vazia-msg {
     padding: 1%;
 }
 
+button.salvar{
+    margin: 0 25%;
+    padding: 0 10%;
+    font-size: 2em;
+    background-color: #68acff;
+    border: none;
+    font-weight: 800;
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+}
+
 @media (min-width: 720px) {
     img.cart-img {
         width: 30%;

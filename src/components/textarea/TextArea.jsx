@@ -3,6 +3,11 @@ import './TextArea.css';
 
 export default class TextArea extends Component{
 
+    constructor(props){
+        super(props)
+
+    }
+
     render(){
         const {placeHolder} = this.props;
         const {label} = this.props;
@@ -14,7 +19,8 @@ export default class TextArea extends Component{
                     <textarea name="comentario" 
                                 id="comentario" 
                                 cols="30" rows="10" 
-                                placeholder={placeHolder}>
+                                placeholder={placeHolder} 
+                                onChange={ (e) => this.props.onClick({tipo: 'comentário', text:e.target.value})}>
 
                     </textarea>
                 </div>

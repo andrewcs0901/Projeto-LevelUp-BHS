@@ -1,46 +1,55 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './Contador.css'
 
-export default class Contador extends Component{
+export default class Contador extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
             valor: 0
         }
+        this.updateProps = this.updateProps.bind(this);
     }
 
-    incrementa(quantidade){
-        const {valor} = this.state;
-        this.setState({valor: valor+quantidade})
+    incrementa(quantidade) {
+        const { valor } = this.state;
+        this.setState({ valor: valor + quantidade })
+        this.updateProps(valor + quantidade)
     }
 
-    decrementa(quantidade){
-        const {valor} = this.state;
-            this.setState({ valor: valor-quantidade})
+    decrementa(quantidade) {
+        const { valor } = this.state;
+        this.setState({ valor: valor - quantidade })
+        this.updateProps(valor - quantidade)
     }
 
-    atualizaCampo(evento){
-        const {value} = evento.target;
+    atualizaCampo(evento) {
+        const { value } = evento.target;
         const quantidade = parseInt(value);
-        if(quantidade >= 0 && typeof quantidade == "number"){
-            this.setState({ valor: quantidade})
+        if (quantidade >= 0 && typeof quantidade == "number") {
+            this.setState({ valor: quantidade })
+            this.props.onClick({ tipo: "quantidade", text: quantidade })
+            return;
         }
-        else if(value.length === 0){
-            this.setState({valor: 0})
-        }
+        this.setState({valor: 0})
+        this.props.onClick({ tipo: "quantidade", text: value.length ? 0 : 0}) 
+
     }
 
-    renderizavel(quantidade){
-    const {valor} = this.state;
-    if(valor - quantidade >= 0)
-        return (<button onClick={() => this.decrementa(quantidade)}>-{quantidade}</button>)
+    renderizavel(quantidade) {
+        const { valor } = this.state;
+        if (valor - quantidade >= 0)
+            return (<button onClick={() => this.decrementa(quantidade)}>-{quantidade}</button>)
     }
 
-    render(){
-        const {valor} = this.state;
-        return(
-            <div className="_Contador">
+    updateProps = (quantidade) => {
+        this.props.onClick({ tipo: "quantidade", text: quantidade})
+    }
+
+    render() {
+        const { valor } = this.state;
+        return (
+            <div className="_Contador" onChange={this.updateProps}>
                 <label htmlFor="quantidade" className="label">Quantidade de itens</label>
                 <span className="painel">
                     <span className="botoes">

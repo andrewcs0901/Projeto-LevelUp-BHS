@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Content from './components/Content';
 import firebaseService from './services/FirebaseService'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
@@ -12,12 +12,21 @@ import AdicionarItem from './pages/adicionaritem/AdicionarItem';
 
 class App extends Component {
 
-    state = {
-        listas: []
-    };
+    constructor(props){
+        super(props);
+        let database = localStorage.getItem("usuario_logado")
+        if(database){
+            this.setState ={
+                data: database
+            }
+        }
+    }
+
 
     componentDidMount() {
-        firebaseService.getDataList('produtos', (dataReceived) => this.setState({ data: dataReceived }))
+        localStorage.setItem("CompartiList", "124")
+        let data = localStorage.getItem("CompartList")
+        //firebaseService.getDataList('produtos', (dataReceived) => this.setState({ data: dataReceived }))
     }
 
     render() {
@@ -25,22 +34,11 @@ class App extends Component {
 
             <div id="container">
                 <BrowserRouter>
-                    <Switch>
-                        <Route exact path="/boas-vindas" component={BoasVindas} />
-                    </Switch>
-                    <Switch>
-                        <Route exact path="/minhas-listas" component={Listagem} />
-                    </Switch>
-                    <Switch>
-                        <Route exact  path="/nao-encontrado" component={NotFound404} />
-                    </Switch>
-                    <Switch>
-                        <Route exact path="/login" component={Login} />
-                    </Switch>
-                    <Switch>
-
-                        <Route  exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas"/>} />
-                    </Switch>
+                    <Route exact path="/boas-vindas" component={BoasVindas} />
+                    <Route exact path="/minhas-listas" component={Listagem} />
+                    <Route exact path="/nao-encontrado" component={NotFound404} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas" />} />
                 </BrowserRouter>
                 <Content />
             </div>
