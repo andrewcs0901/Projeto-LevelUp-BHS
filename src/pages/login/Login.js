@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import './Login.css';
-import cartIcon from '../../components/icons/cart-icon.svg'
+import cartIcon from '../../components/icons/cart-icon.svg';
+import { Link } from 'react-router-dom';
 
 
 class Login extends Component {
@@ -24,15 +25,21 @@ class Login extends Component {
             if (this.validarEmail(email) && password.length >= 8) {
                 const db = JSON.parse(localStorage.getItem("Login"));
                 if (db) {
-                    if(db.filter( (cadastro) => cadastro.email === email && cadastro.password === password).length){
+                    if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password).length) {
+                        Storage.removeItem("Session");
                         localStorage.setItem("Session", JSON.stringify(this.state))
                         window.location.href = "/minhas-listas"
                     }
-                    else alert("Erro: Email e senhas não são compatíveis")
-
+                    else alert("Erro: Email e/ou senhas não são compatíveis")
+                }
+                else {
+                    alert("Você precisará cadastrar primeiramente")
+                    window.location.href = "/cadastro"
                 }
             }
         }
+        else
+            alert("Por favor preencher todos os campos")
     }
 
     validarEmail(email) {
@@ -56,7 +63,11 @@ class Login extends Component {
 
         return (
             <>
-                <div className="logo"><img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img></div>
+                <Link to="/">
+                    <div className="logo">
+                        <img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img>
+                    </div>
+                </Link>
                 <div className="_Login">
 
                     <header>Bem-Vindo novamente ao CompartiList!</header>
@@ -67,6 +78,7 @@ class Login extends Component {
                         length="8"
                         onChange={this.onChange} />
                     <Button text="Login" style={style} submit={this.submit} />
+                    <div>Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link></div>
                 </div>
             </>
         )

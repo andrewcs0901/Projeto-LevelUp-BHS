@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Content from './components/Content';
 import firebaseService from './services/FirebaseService'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route} from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
@@ -42,7 +42,7 @@ class App extends Component {
                     <Route exact path="/nao-encontrado" component={NotFound404} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/cadastro" component={Cadastro} />
-                    <Route exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas" />} />
+                    <Route exact path="/adicionar-item" component={AdicionarItem} />
                 </BrowserRouter>
                 <Content />
             </div>

@@ -3,10 +3,10 @@ import './Input.css';
 
 export default class Input extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
-            input: ""
+            input: this.props.value ? this.props.value : "",
         }
         this.handleChange = this.handleChange.bind(this);
     }
@@ -17,7 +17,7 @@ export default class Input extends Component {
             input: event.target.value
         }
         )
-        this.props.onChange({tipo: this.props.type, valor: event.target.value})
+        this.props.onChange({ tipo: this.props.type, valor: event.target.value })
     }
 
 
@@ -36,7 +36,7 @@ export default class Input extends Component {
                     placeholder={placeholder}
                     onChange={this.handleChange}
                     value={this.state.input}
-                    minLength={this.props.length? this.props.length : "0" }
+                    minLength={this.props.length ? this.props.length : "0"}
                     required
                 />
             </div>

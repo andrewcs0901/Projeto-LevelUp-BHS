@@ -29,6 +29,23 @@ button.salvar{
     position: fixed;
 }
 
+.salvar{
+    text-align: center;
+}
+
+input[name="NomeLista"]{
+    font-size: 1.5em;
+    margin: auto;
+    border-bottom: 1px solid;
+}
+._Input{
+    display: grid;
+    margin-top: 5%;
+    margin: 2.5% auto;
+    box-shadow: 0px 1px 8px;
+    padding: 2%;
+}
+
 @media (min-width: 720px) {
     img.cart-img {
         width: 30%;

@@ -33,7 +33,7 @@ export default class Seletor extends Component {
     render() {
         return (
             <div>
-                <div style={{ display: "flex", justifyContent: this.props.justify }}>
+                <div style={{ display: "flex", justifyContent: this.props.justify, padding: "5%" }}>
                     <label htmlFor="texto">{this.props.label}</label>
                     <select onChange={this.updateState}>
                         {this.renderList()}

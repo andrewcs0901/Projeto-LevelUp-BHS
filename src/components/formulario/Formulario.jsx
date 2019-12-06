@@ -11,31 +11,33 @@ export default class Formulario extends Component {
 
     constructor(props) {
         super(props);
-        this.state={
-            
+        this.state = {
+            dados: this.props
         }
 
-        this.onClick =this.onClick.bind(this)
+        this.onClick = this.onClick.bind(this)
     }
 
     onClick(component) {
         const { tipo } = component;
         const { text } = component;
-        console.log(component)
-        console.log(tipo)
-        if (tipo)
+        if (tipo){
             this.setState({
                 [component.tipo]: text
             })
+        this.props.submit({ [component.tipo]: text })
+        }
+        else{
+            this.props.submit({["comentario"]: text})
+        }
     }
 
     render() {
-        console.log(this.state)
         return (
             <div className="_Formulario">
-                <Link to={this.props.url}>
+                <Link to="/visualizar-lista">
                     <Navigation text="Voltar" icon={icon} style={
-                        { justifyContent: "flex-end", flexDirection: "column"}} />
+                        { justifyContent: "flex-end", flexDirection: "column" }} />
                 </Link>
                 <AutoComplete
                     placeholder={"Nome do item"}
@@ -47,7 +49,7 @@ export default class Formulario extends Component {
                     items={["laticinios", "frutas", "grãos", "carnes"]}
                     name="categoria"
                     onClick={this.onClick} />
-                <Contador onClick={this.onClick}/>
+                <Contador onClick={this.onClick} />
                 <TextArea
                     placeHolder={"Exemplo: Preferência por marca X"}
                     label={"(opcional) Adicione uma descrição:"}

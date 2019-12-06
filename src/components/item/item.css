@@ -50,7 +50,7 @@
     transform-origin: top;
     overflow: hidden;
     width: 100%;
-    box-shadow: 1px 1px 12px rgba(0,0,0,0.3)
+    box-shadow: 1px 1px 12px rgba(0,0,0,0.3);
 }
 
 .BouncingListItem {
@@ -64,7 +64,7 @@
 }
 
 .wrapper {
-    width: 75%;
+    width: 90%;
     margin: 5% auto;
 
 }

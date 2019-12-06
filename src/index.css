@@ -23,8 +23,17 @@ input,textarea{
   transition: .35s ease-in-out;
 }
 
+input{
+  border-bottom: 1px solid rgba(40, 40, 40, 0.76) !important;
+  padding: 1%;
+}
+
 input:focus, textarea:focus{
   outline-width: 0;
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.253); 
+  box-shadow: -2px 0px 5px rgba(0,0,0,0.3); 
+}
+
+a{
+  color: red !important;
 }
 

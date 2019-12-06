@@ -20,7 +20,7 @@ export default class TextArea extends Component{
                                 id="comentario" 
                                 cols="30" rows="10" 
                                 placeholder={placeHolder} 
-                                onChange={ (e) => this.props.onClick({tipo: 'comentário', text:e.target.value})}>
+                                onChange={ (e) => this.props.onClick({tipo: 'comentario', text:e.target.value})}>
 
                     </textarea>
                 </div>
