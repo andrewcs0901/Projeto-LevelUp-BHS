@@ -9,7 +9,7 @@ export default class NavigationIcon extends Component {
 
     render() {
         return (
-            <div className="_Navigation" style={this.props.style}>
+            <div className="_Navigation" style={this.props.style} onClick={this.props.update}>
 
                 {this.willRender(this.props.icon,
                     <img src={this.props.icon} alt={this.props.icon}></img>)}

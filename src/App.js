@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Content from './components/Content';
 import firebaseService from './services/FirebaseService'
-import { BrowserRouter, Route } from 'react-router-dom'
+import { BrowserRouter, Route} from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
@@ -9,6 +9,7 @@ import Login from './pages/login/Login';
 import Cadastro from './pages/cadastro/Cadastro'
 import './index.css';
 import AdicionarItem from './pages/adicionaritem/AdicionarItem';
+import MinhasListas from './pages/minhaslistas/MinhasListas';
 
 
 class App extends Component {
@@ -35,12 +36,13 @@ class App extends Component {
 
             <div id="container">
                 <BrowserRouter>
-                    <Route exact path="/boas-vindas" component={BoasVindas} />
-                    <Route exact path="/minhas-listas" component={Listagem} />
+                    <Route exact path="/" component={BoasVindas} />
+                    <Route exact path="/visualizar-lista" component={Listagem} />
+                    <Route exact path="/minhas-listas" component={MinhasListas} />
                     <Route exact path="/nao-encontrado" component={NotFound404} />
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/cadastro" component={Cadastro} />
-                    <Route exact path="/adicionar-item" render={(props) => <AdicionarItem url="minhas-listas" />} />
+                    <Route exact path="/adicionar-item" component={AdicionarItem} />
                 </BrowserRouter>
                 <Content />
             </div>

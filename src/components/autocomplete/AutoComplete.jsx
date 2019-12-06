@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './AutoComplete.css';
 
-export default class AutoComplete extends Component{
-    
-    constructor(props){
+export default class AutoComplete extends Component {
+
+    constructor(props) {
         super(props);
         this.state = {
             suggestions: [],
@@ -15,54 +15,57 @@ export default class AutoComplete extends Component{
     }
 
     onTextChanged = (e) => {
-        const {items} = this.props;
-        const {value} = e.target;
+        const { items } = this.props;
+        const { value } = e.target;
 
         let suggestions = [];
-        if (value.length > 0){
-            const regex = new RegExp(`${value}`,'i');
+        if (value.length > 0) {
+            const regex = new RegExp(`${value}`, 'i');
             suggestions = items.sort().filter(v => regex.test(v));
-            this.props.onClick({tipo: this.props.name, text: value})
+            this.props.onClick({ tipo: this.props.name, text: value })
         }
-        this.setState( () => ({ suggestions, text: value})  );                  
+        this.setState(() => ({ suggestions, text: value }));
     }
 
     handleKey = (e) => {
-        if(e.key === "Enter"){
-            this.props.onClick({tipo: this.props.name, text: this.state.text})
+        if (e.key === "Enter") {
+            this.props.onClick({ tipo: this.props.name, text: this.state.text })
         }
-    } 
+        else if (this.state.text.length === 1 && e.key === "Backspace") {
+            this.props.onClick({ tipo: this.props.name, text: "" })
+        }
+    }
 
-    suggestionSelected (value) {
-        this.setState( () => ({
+    suggestionSelected(value) {
+        this.setState(() => ({
             text: value,
             suggestions: [],
         }))
-        this.props.onClick({tipo: this.props.name, text: value})
-    } 
+        this.props.onClick({ tipo: this.props.name, text: value })
+    }
 
-    renderSuggestions () {
-        const {suggestions} = this.state;
-        if (suggestions.length === 0){
+    renderSuggestions() {
+        const { suggestions } = this.state;
+        if (suggestions.length === 0) {
             return null;
         }
-        return(
+        return (
             <ul>
-                {suggestions.map( (item ) => <li key={item} onClick={() => this.suggestionSelected(item)}>{item}</li>)}
+                {suggestions.map((item) => <li key={item} onClick={() => this.suggestionSelected(item)}>{item}</li>)}
             </ul>
         )
     }
 
-    render(){
-        const {text} = this.state;
-        const {placeholder} = this.props;
-        return(
+    render() {
+        const { text } = this.state;
+        const { placeholder } = this.props;
+        return (
             <div className="auto-complete">
-                <input value={text} 
-                    onChange={this.onTextChanged} 
-                    type="text" placeholder={placeholder} 
+                <input value={text}
+                    onChange={this.onTextChanged}
+                    type="text" placeholder={placeholder}
                     required
-                    onKeyPress={this.handleKey}/>
+                    onKeyDown={this.handleKey} />
                 {this.renderSuggestions()}
             </div>
         )

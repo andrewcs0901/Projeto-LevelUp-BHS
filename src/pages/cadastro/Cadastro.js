@@ -3,6 +3,7 @@ import Input from '../../components/input/Input';
 import Button from '../../components/button/Button';
 import './Cadastro.css';
 import cartIcon from '../../components/icons/cart-icon.svg'
+import { Link } from 'react-router-dom'
 
 
 class Login extends Component {
@@ -23,20 +24,36 @@ class Login extends Component {
         if (email && password) {
             if (this.validarEmail(email) && password.length >= 8) {
                 let db = JSON.parse(localStorage.getItem("Login"))
-                if (db) {                    
-                    if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password))
-                        db.push(this.state)
-                    else
-                        alert("Email já cadastrado no sistema")
+                let aux = this.state;
+                aux.listas = [];
+                if (db) {
+                    if (db.filter((cadastro) => cadastro.email !== email).length > 0) {
+                        let session = JSON.parse(localStorage.getItem("Session"))
+                        session = "";
+                        localStorage.setItem("Session", session)
+                        db.push(aux)
+                    }
+                    else {
+                        alert("Email já cadastrado no sistema");
+                        return
+                    }
+
                 }
                 else {
                     db = []
-                    db.push(this.state);
+                    db.push(aux);
                 }
-                localStorage.setItem("Login", JSON.stringify(db))
+                const data = JSON.stringify(db)
+                console.log(data)
+                alert("ok")
+                localStorage.setItem("Login", data);
+                localStorage.setItem("Session", JSON.stringify(aux))
                 window.location.href = "/minhas-listas"
             }
 
+        }
+        else {
+            alert("Por favor, preencha todos os campos")
         }
     }
 
@@ -61,7 +78,11 @@ class Login extends Component {
 
         return (
             <>
-                <div className="logo"><img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img></div>
+                <Link to="/">
+                    <div className="logo">
+                        <img src={cartIcon} alt="icone carrinho de compras + simbolo compartilhavel"></img>
+                    </div>
+                </Link>
                 <div className="_Login">
 
                     <header>Esqueceu um item de compra? Não tem problema cadastre-se agora!</header>
@@ -72,6 +93,7 @@ class Login extends Component {
                         length="8"
                         onChange={this.onChange} />
                     <Button text="Cadastrar" style={style} submit={this.submit} />
+                    <div>Já está cadastrado? <Link to="/login">Faça login agora</Link></div>
                 </div>
             </>
         )

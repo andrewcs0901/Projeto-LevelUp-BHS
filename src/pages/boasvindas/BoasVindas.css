@@ -1,0 +1,28 @@
+._BoasVindas{
+    display: flex;
+    flex-direction: column;
+}
+
+._BoasVindas > .opcao{
+    display: flex;
+    flex-direction: row;
+    margin: 10%;
+    justify-content: space-around;
+}
+
+._BoasVindas > .mensagem-logo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10%;
+    margin: 0 auto;
+}
+
+.login ._Button,.cadastro ._Button {
+    margin-top: 5%;
+    background-color: rgba(31, 240, 23, 0.699);
+    font-size: 2em;
+    padding: 4%;
+    min-width: 4.5em;
+    border: none;
+}

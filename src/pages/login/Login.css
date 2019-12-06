@@ -12,13 +12,14 @@
 
 ._Input{
     display: grid;
-    margin-top: 5%
+    margin-top: 5%;
+    border-bottom: 1px solid gray;
 }
 
 input{
     margin-top: 1%;
     border: none;
-    padding: 2%
+    padding: 2%;
 }
 
 ._Button{

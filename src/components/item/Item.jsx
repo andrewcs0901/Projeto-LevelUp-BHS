@@ -89,6 +89,7 @@ export default class Item extends Component {
                 this.onSwiped();
                 this.wrapper.style.display = `none`;
                 let id = this.wrapper.id;
+                console.log(this.props)
                 this.props.removeItem(id)
                 return
             } else {

@@ -1,0 +1,20 @@
+._MinhasListas{
+    display: flex;
+    flex-direction: column;
+}
+
+._MinhasListas > .mensagem-sem-listas img{
+    width: 70%;
+    margin: 0 auto;
+}
+
+#container > div > div.mensagem-sem-listas > a{
+    flex-direction: column;
+    display: flex;
+}
+
+._MinhasListas .mensagem-sem-listas .descricao{
+    text-align: center;
+    font-size: 2em;
+}
+
