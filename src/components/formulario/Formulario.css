@@ -1,0 +1,36 @@
+._Formulario{
+    display: flex;
+    flex-direction: column;
+    width: 78%;
+    margin: 0 auto;
+    padding: 3%;
+    box-shadow: 1px 2px 8px 0px #07131333;
+    margin-top: 12%;
+}
+
+._Formulario ._Navigation{
+    align-items: flex-end;
+}
+
+._Formulario #comentario{
+    border: 1px solid gray;
+    border-radius: 3%;
+    text-align: justify;
+    padding: 5%;
+    box-shadow: 0px 0px 0px 0px black;
+    -webkit-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+    margin-top: 2%;
+}
+
+._Formulario #comentario:focus{
+    outline-width: 0;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .18);  
+}
+
+@media(min-width: 720px){
+    ._Formulario{
+        width: 40%;
+    }
+    
+}

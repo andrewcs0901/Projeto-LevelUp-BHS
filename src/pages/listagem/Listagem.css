@@ -1,0 +1,69 @@
+.visualizar-lista{
+    display: flex;
+    flex-direction: column;
+}
+
+img.cart-img {
+    width: 80%;
+    margin: auto 10%;
+}
+
+div.lista-vazia-msg {
+    font-size: 1.5em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.adicionar-item {
+    color: rgb(255, 255, 255);
+    background-color: indigo;
+    padding: 1%;
+}
+
+button.salvar{
+    margin: 0 25%;
+    padding: 0 10%;
+    font-size: 2em;
+    background-color: #68acff;
+    border: none;
+    font-weight: 800;
+    bottom: 0;
+    z-index: 1;
+    position: fixed;
+}
+
+.salvar{
+    text-align: center;
+    margin: 10%;
+
+}
+
+input[name="NomeLista"]{
+    font-size: 1.5em;
+    border-bottom: 1px solid;
+}
+._Input{
+    display: grid;
+    margin: 0 auto;
+    padding: 2%;
+}
+
+.mensagem-arrastar{
+    text-align: center;
+    padding: 2%
+}
+
+@media (min-width: 720px) {
+    img.cart-img {
+        width: 30%;
+        margin: 0 35%;
+    }
+    .mensagem-lista-vazia{
+        margin: 3%;
+    }
+    .mensagem-arrastar{
+        padding: 0
+    }
+}

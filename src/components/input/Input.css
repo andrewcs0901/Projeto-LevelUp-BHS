@@ -1,0 +1,23 @@
+._Input{
+    border: none;
+    width: 100%;
+}
+
+._Input input{
+    box-shadow: 0px 0px 0px 0px black;
+    -webkit-transition: .35s ease-in-out;
+    transition: .35s ease-in-out;
+}
+
+._Input input:focus{
+    outline-width: 0;
+    box-shadow: 0px 0px 7px 0px black;  
+}
+
+._Input input:invalid:focus{
+    box-shadow: 0px 0px 8px 0px  rgba(255, 0, 0, 0.623)
+}
+
+._Input input:valid:focus{
+    box-shadow: 0px 0px 8px 0px  rgba(31, 240, 23, 0.699)
+}

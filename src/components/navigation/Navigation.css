@@ -1,0 +1,20 @@
+._Navigation a{
+    display: flex;
+    width: fit-content;
+    align-items: center;
+}
+
+._Navigation img{
+    margin-right: 2%;
+    width: 8%; 
+}
+
+._Navigation{
+    display: flex;
+}
+
+
+a{
+    color: #000;
+    text-decoration: none;
+}

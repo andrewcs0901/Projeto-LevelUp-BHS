@@ -1,0 +1,57 @@
+div._Contador{
+    max-width: 70%;
+    margin: 20% auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+div._Contador > .label{
+    margin-right: 5%;
+    text-align: center;
+}
+
+div._Contador > .painel{
+    margin-top: 10%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+div._Contador .campo{
+    max-width: 20%;
+    text-align: center;
+    margin: 0 5%;
+}
+
+div._Contador .botoes button{
+    min-width: 10%;
+    border: 1px solid rgba(130, 130, 130, 0.3);
+    background-color: white;
+    text-align: center;
+}
+
+div._Contador span.botoes{
+    min-height: 1px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}   
+
+
+div._Contador .botoes :hover, div._Contador .botoes ::after{
+    transition-duration: 400ms;
+    background-color: rgba(130, 130, 130, 0.3);
+}
+
+@media (min-width: 720px){
+    div._Contador > .painel {
+        max-width: 60%;
+    }
+   
+}
+
+
+
+
+

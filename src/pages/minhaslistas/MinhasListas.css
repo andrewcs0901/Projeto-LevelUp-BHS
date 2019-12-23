@@ -1,0 +1,39 @@
+._MinhasListas {
+    display: flex;
+    flex-direction: column;
+}
+
+._MinhasListas>.mensagem-sem-listas img {
+    width: 70%;
+    margin: 0 auto;
+}
+
+#container>div>div.mensagem-sem-listas>a {
+    flex-direction: column;
+    display: flex;
+}
+
+._MinhasListas .mensagem-sem-listas .descricao {
+    text-align: center;
+    font-size: 2em;
+}
+
+._MinhasListas .mensagem-sem-listas ._Button{
+    background-color: rgb(28, 44, 134);
+    border: none;
+    padding: 1%;
+    color: white;
+    font-size: 2em;
+    margin: 12% auto;
+}
+
+@media(min-width:640px) {
+    ._MinhasListas>.mensagem-sem-listas img {
+        width: 25%;
+    }
+
+    ._MinhasListas .mensagem-sem-listas ._Button {
+        width: 30%;
+    }
+
+}
