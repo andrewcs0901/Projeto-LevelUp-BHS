@@ -1,8 +1,13 @@
+<<<<<<< HEAD
 ._BoasVindas {
+=======
+._BoasVindas{
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     display: flex;
     flex-direction: column;
 }
 
+<<<<<<< HEAD
 ._BoasVindas>.opcao {
     display: flex;
     flex-direction: row;
@@ -11,6 +16,16 @@
 }
 
 ._BoasVindas>.mensagem-logo {
+=======
+._BoasVindas > .opcao{
+    display: flex;
+    flex-direction: row;
+    margin: 10%;
+    justify-content: space-around;
+}
+
+._BoasVindas > .mensagem-logo{
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,14 +33,21 @@
     margin: 0 auto;
 }
 
+<<<<<<< HEAD
 .login ._Button,
 .cadastro ._Button {
     margin-top: 5%;
     background-color: rgb(29, 27, 78);
+=======
+.login ._Button,.cadastro ._Button {
+    margin-top: 5%;
+    background-color: rgba(31, 240, 23, 0.699);
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     font-size: 2em;
     padding: 4%;
     min-width: 4.5em;
     border: none;
+<<<<<<< HEAD
     color: rgb(255,255,255)
 }
 
@@ -40,4 +62,6 @@
         height: inherit;
     }
 
+=======
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }

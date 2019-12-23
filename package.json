@@ -10,7 +10,11 @@
     "react-autosuggest": "^9.4.3",
     "react-dom": "^16.12.0",
     "react-router-dom": "^5.1.2",
+<<<<<<< HEAD
     "react-scripts": "^3.3.0",
+=======
+    "react-scripts": "3.2.0",
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     "react-swipe-to-delete-component": "^0.5.4",
     "uuid": "^3.3.3"
   },

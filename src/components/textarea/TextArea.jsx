@@ -3,6 +3,14 @@ import './TextArea.css';
 
 export default class TextArea extends Component{
 
+<<<<<<< HEAD
+=======
+    constructor(props){
+        super(props)
+
+    }
+
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     render(){
         const {placeHolder} = this.props;
         const {label} = this.props;

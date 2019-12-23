@@ -26,10 +26,15 @@ class Login extends Component {
                 const db = JSON.parse(localStorage.getItem("Login"));
                 if (db) {
                     if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password).length) {
+<<<<<<< HEAD
                         localStorage.removeItem("Session");
                         let aux = this.state;
                         aux.listas = [];
                         localStorage.setItem("Session", JSON.stringify(aux))
+=======
+                        Storage.removeItem("Session");
+                        localStorage.setItem("Session", JSON.stringify(this.state))
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
                         window.location.href = "/minhas-listas"
                     }
                     else alert("Erro: Email e/ou senhas não são compatíveis")
@@ -55,12 +60,19 @@ class Login extends Component {
     render() {
 
         const style = {
+<<<<<<< HEAD
             backgroundColor: "rgb(29, 27, 78)",
+=======
+            backgroundColor: "rgba(11, 0, 255, 0.53)",
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
             fontWeight: "bold",
             color: "white",
             border: "none",
             padding: "2%",
+<<<<<<< HEAD
             fontSize: "1.3em",
+=======
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
             margin: "10% auto"
         }
 
@@ -73,7 +85,11 @@ class Login extends Component {
                 </Link>
                 <div className="_Login">
 
+<<<<<<< HEAD
                     <header style={{ height: "20%" }}>Bem-Vindo novamente ao CompartiList!</header>
+=======
+                    <header>Bem-Vindo novamente ao CompartiList!</header>
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
                     <Input type="email" labelText="Email:" labelFor="email"
                         placeholder="exemplo@email.com" autocomplete="on"
                         onChange={this.onChange} />
@@ -81,10 +97,14 @@ class Login extends Component {
                         length="8"
                         onChange={this.onChange} />
                     <Button text="Login" style={style} submit={this.submit} />
+<<<<<<< HEAD
                     <div style={{ wordSpacing: "0.17em", textAlign: "center", margin: "0 auto" }}>
                         Não tem uma conta? 
                         <br></br><Link to="/cadastro">Cadastre-se</Link>
                     </div>
+=======
+                    <div>Não tem uma conta? <Link to="/cadastro">Cadastre-se</Link></div>
+>>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
                 </div>
             </>
         )
