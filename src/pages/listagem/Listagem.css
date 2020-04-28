@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .visualizar-lista{
     display: flex;
     flex-direction: column;
@@ -10,23 +9,11 @@ img.cart-img {
 }
 
 div.lista-vazia-msg {
-=======
-img.cart-img {
-    width: 80%;
-    margin: 10%;
-}
-
-div.lista-vazia-msg {
-    padding: 4%;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     font-size: 1.5em;
     text-align: center;
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     align-items: center;
-=======
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 .adicionar-item {
@@ -49,24 +36,16 @@ button.salvar{
 
 .salvar{
     text-align: center;
-<<<<<<< HEAD
     margin: 10%;
 
-=======
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 input[name="NomeLista"]{
     font-size: 1.5em;
-<<<<<<< HEAD
-=======
-    margin: auto;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     border-bottom: 1px solid;
 }
 ._Input{
     display: grid;
-<<<<<<< HEAD
     margin: 0 auto;
     padding: 2%;
 }
@@ -76,14 +55,6 @@ input[name="NomeLista"]{
     padding: 2%
 }
 
-=======
-    margin-top: 5%;
-    margin: 2.5% auto;
-    box-shadow: 0px 1px 8px;
-    padding: 2%;
-}
-
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 @media (min-width: 720px) {
     img.cart-img {
         width: 30%;
@@ -92,10 +63,7 @@ input[name="NomeLista"]{
     .mensagem-lista-vazia{
         margin: 3%;
     }
-<<<<<<< HEAD
     .mensagem-arrastar{
         padding: 0
     }
-=======
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }

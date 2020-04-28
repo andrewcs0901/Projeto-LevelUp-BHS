@@ -1,11 +1,6 @@
 ._Input{
     border: none;
-<<<<<<< HEAD
     width: 100%;
-=======
-    border-bottom: 1px solid gray;
-    width: 90%;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 ._Input input{

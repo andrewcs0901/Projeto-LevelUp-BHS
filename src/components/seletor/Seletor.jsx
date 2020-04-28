@@ -11,7 +11,7 @@ export default class Seletor extends Component {
         const { opcao } = this.props;
         if (opcao) {
             let array = [];
-            opcao.map((element) => {
+            opcao.forEach((element) => {
                 array.push(<option
                     key={element.valor}
                     value={element.valor}
@@ -38,8 +38,6 @@ export default class Seletor extends Component {
                     </select>
                 </div>
             </div>
-
-
         )
 
     }

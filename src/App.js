@@ -23,12 +23,6 @@ class App extends Component {
         }
     }
 
-
-    componentDidMount() {
-        localStorage.setItem("CompartiList", "124")
-        let data = localStorage.getItem("CompartList")
-    }
-
     render() {
         return (
 

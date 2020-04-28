@@ -1,40 +1,23 @@
-<<<<<<< HEAD
 ._MinhasListas {
-=======
-._MinhasListas{
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     display: flex;
     flex-direction: column;
 }
 
-<<<<<<< HEAD
 ._MinhasListas>.mensagem-sem-listas img {
-=======
-._MinhasListas > .mensagem-sem-listas img{
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     width: 70%;
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
 #container>div>div.mensagem-sem-listas>a {
-=======
-#container > div > div.mensagem-sem-listas > a{
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     flex-direction: column;
     display: flex;
 }
 
-<<<<<<< HEAD
 ._MinhasListas .mensagem-sem-listas .descricao {
-=======
-._MinhasListas .mensagem-sem-listas .descricao{
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     text-align: center;
     font-size: 2em;
 }
 
-<<<<<<< HEAD
 ._MinhasListas .mensagem-sem-listas ._Button{
     background-color: rgb(28, 44, 134);
     border: none;
@@ -54,5 +37,3 @@
     }
 
 }
-=======
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee

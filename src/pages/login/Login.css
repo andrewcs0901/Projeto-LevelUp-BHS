@@ -1,44 +1,25 @@
 ._Login{
     display: flex;
     flex-direction: column;
-<<<<<<< HEAD
     width: 80%;
-=======
-    width: 60%;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
     margin: 0 auto;
     box-shadow: 1px 1px 8px 0px rgba(0,0,0,0.5);
     padding: 5%;
     align-items: flex-start;
     font-size: 1.3em;
     margin-top: 10%;
-<<<<<<< HEAD
     height: 70vh;
-=======
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 ._Input{
     display: grid;
-<<<<<<< HEAD
-=======
-    margin-top: 5%;
-    border-bottom: 1px solid gray;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 input{
     margin-top: 1%;
     border: none;
     padding: 2%;
-<<<<<<< HEAD
     font-size: 1.01em;
-=======
-}
-
-._Button{
-    margin-top: 5%
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }
 
 .logo > img{
@@ -46,7 +27,6 @@ input{
     height: 10vh;
 }
 
-<<<<<<< HEAD
 .logo {
     margin-top: 10%;
 }
@@ -62,8 +42,4 @@ input{
         padding: 2%;
         margin-top: 5%;
     }
-=======
-.logo{
-    margin-top: 10%;
->>>>>>> d6183d308e43c97b5fd9362d800326d2b5cec6ee
 }

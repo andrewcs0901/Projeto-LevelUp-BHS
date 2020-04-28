@@ -11,7 +11,7 @@ export default class SelectableItem extends Component {
 
     selected() {
         this.setState({selecionado: !this.state.selecionado});
-        this.props.selected(!this.state.selecionado)
+        this.props.selected({select: !this.state.selecionado, id: this.props.id})
     }
 
     render() {
