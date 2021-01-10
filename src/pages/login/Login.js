@@ -25,11 +25,11 @@ class Login extends Component {
             if (this.validarEmail(email) && password.length >= 8) {
                 const db = JSON.parse(localStorage.getItem("Login"));
                 if (db) {
-                    if (db.filter((cadastro) => cadastro.email === email && cadastro.password === password).length) {
+                    if (db.email === email && db.password === password){
                         localStorage.removeItem("Session");
                         let aux = this.state;
                         aux.listas = [];
-                        localStorage.setItem("Session", JSON.stringify(aux))
+                        localStorage.setItem("Session", JSON.stringify(db))
                         window.location.href = "/minhas-listas"
                     }
                     else alert("Erro: Email e/ou senhas não são compatíveis")
@@ -45,7 +45,7 @@ class Login extends Component {
     }
 
     validarEmail(email) {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return (true)
         }
         alert("Você não inseriu um e-mail válido")

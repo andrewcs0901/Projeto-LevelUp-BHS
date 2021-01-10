@@ -1,7 +1,7 @@
 ._Item {
     display: flex;
     padding: 2%;
-    height: 10vh;
+    height: 72px;
     flex-direction: column;
     width: 100%;
 }
@@ -12,13 +12,14 @@
 
 ._Item>.comentario {
     text-align: right;
-    margin: 1.5%;
+    width: 96%;
 }
 
 ._Item>.informacoes-item {
     display: flex;
     justify-content: space-between;
     border-bottom: 1px solid gray;
+    width: 96%;
 }
 
 .ListItem {

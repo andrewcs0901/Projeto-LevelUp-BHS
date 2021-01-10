@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import SelectableItem from '../../components/selectableItem/SelectableItem';
 import ProgressBar from '../../components/progressBar/ProgressBar';
+import Header from '../../components/header/Header';
+import NavigationIcon from '../../components/navigation/NavigationIcon';
+import back from '../../components/icons/back.png'
+import { Link } from 'react-router-dom';
 
 export default class Compra extends Component {
 
@@ -16,11 +20,9 @@ export default class Compra extends Component {
     }
 
     renderItems() {
-        let array = [];
-        this.state.items.forEach(item => {
-            array.push(<SelectableItem name={item.nome} key={item.id} selected={this.selected} id={item.id} />)
-        });
-        return array;
+        return this.state.items.map(item =>
+            <SelectableItem name={item.nome} key={item.id} selected={this.selected} id={item.id} />)
+
     }
 
     renderProgressBar() {
@@ -28,29 +30,48 @@ export default class Compra extends Component {
     }
 
     selected(item) {
-        const {select} =  item;
-        const {id}     = item;
-        if (select){
-            this.setState({completed : [...this.state.completed, id]} );
-            this.setState({progress: this.percentual(this.state.completed.length+1)});
+        const { select } = item;
+        const { id } = item;
+        if (select) {
+            this.setState({ completed: [...this.state.completed, id] });
+            this.setState({ progress: this.percentual(this.state.completed.length + 1) });
         }
-            
+
         else
-            if (this.state.completed.length){
-                this.setState({completed : this.state.completed.filter( item => item != id)} );
-                this.setState({progress: this.percentual(this.state.completed.length-1) })
-            }      
+            if (this.state.completed.length) {
+                this.setState({ completed: this.state.completed.filter(item => item !== id) });
+                this.setState({ progress: this.percentual(this.state.completed.length - 1) })
+            }
     }
 
-    percentual(completed){
-        return ((completed)/this.state.items.length)*100;
+    percentual(completed) {
+        return ((completed) / this.state.items.length) * 100;
     }
 
     render() {
 
         return (<div className="_Compra">
-            {this.renderProgressBar()}
-            {this.renderItems()}
-        </div>);
+            <Header titulo="Lista de Compras" children={
+                <Link to="/minhas-listas">
+                    <NavigationIcon icon={back}
+                        style={{
+                            float: "left",
+                            border: "none",
+                            padding: "2%",
+                            margin: "3% 2%"
+                        }} 
+                        iconStyle={{
+                            width: "100%"
+                        }}/>
+                </Link>
+            } />
+            {
+                this.state.items && (
+                    <>
+                        { this.renderProgressBar()}
+                        { this.renderItems()}
+                    </>
+                )}
+        </div >);
     }
 }

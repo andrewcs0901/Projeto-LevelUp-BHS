@@ -19,7 +19,7 @@ export default class Button extends Component {
 
         return (
             <button className="_Button" style={this.props.style} onClick={this.action}>
-                {icon ? <img src={icon} alt=""></img> : ""} {text}
+                {icon ? <img src={icon} alt="" style={{width: '32px'}}></img> : ""} {text}
             </button>
 
         )

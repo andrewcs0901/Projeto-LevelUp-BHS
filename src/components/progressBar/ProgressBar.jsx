@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-export default class ProgressBar extends Component{
+export default class ProgressBar extends Component {
 
-    render(){
+    render() {
 
         const style = {
-            backgroundColor: this.props.backgroundColor,
             WebkitProgressBar: '#efefef',
-            WebkitProgressValue: this.props.backgroundColor
-          }
+            WebkitProgressValue: this.props.backgroundColor,
+            width: '100%'
+        }
 
-        return(
-            <div>
+        return (
+            <div style={{ width: "80%", margin: 'auto' }}>
                 <progress value={this.props.progress} max={100} style={style}></progress>
             </div>
         )

@@ -26,20 +26,7 @@ export default class AdicionarItem extends Component {
     }
 
     submit(e) {
-        if (e.nome) {
-            this.setState({ nome: e.nome })
-        } else if (e.quantidade) {
-            this.setState({ quantidade: e.quantidade })
-        } else if (e.categoria) {
-            this.setState({ categoria: e.categoria })
-        }
-        else if (e.comentario) {
-            this.setState({ comentario: e.comentario })
-        } else if (e.prioridade) {
-            this.setState({ prioridade: e.prioridade })
-        }
-        else
-            alert("Preencha todos os campos base")
+        this.setState({ [Object.keys(e)[0]]: e[Object.keys(e)[0]] })
     }
 
     update() {
@@ -76,7 +63,6 @@ export default class AdicionarItem extends Component {
             let db = JSON.parse(localStorage.getItem("Session"));
             let lista = db.listas.filter((lista) => lista.id === this.state.idLista)
             console.log(lista)
-            alert("ok")
             return <Redirect to={{ pathname: `/visualizar-lista`, state: lista[0] }} />
         }
         return (

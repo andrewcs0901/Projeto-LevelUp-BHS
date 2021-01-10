@@ -1,23 +1,33 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './Header.css';
+import DB from '../../services/DB'
+import {loginURL} from '../../App';
+import { Redirect } from 'react-router-dom';
 
-class Header extends Component {
+const Header = (props) => {
 
-    render() {
-        const {titulo}  = this.props;
-        const {align} = this.props? this.props : ""
+        const {titulo}  = props;
+        const {align} = props || "center"
+        const [redirect, setRedirect] = useState(false)
+
+        const logOff = () => {
+            DB.saveSession();
+            setRedirect((current) => !current)
+        }
+
         return (
             <div>
             <header className="_Header" style={{textAlign: align}}>
+                {props.children}
                 <h1>
                     {titulo}
                 </h1>
+                <button onClick={logOff}>Sair</button>
+                {redirect && <Redirect to={loginURL}/>}
             </header>
             </div>
 
         )
-    }
-
 }
 
 export default Header;
