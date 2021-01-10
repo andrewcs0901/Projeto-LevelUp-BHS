@@ -45,7 +45,7 @@ class Login extends Component {
     }
 
     validarEmail(email) {
-        if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
             return (true)
         }
         alert("Você não inseriu um e-mail válido")

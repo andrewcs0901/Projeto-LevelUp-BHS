@@ -10,16 +10,22 @@ export default class SelectableItem extends Component {
     }
 
     selected() {
-        this.setState({selecionado: !this.state.selecionado});
-        this.props.selected({select: !this.state.selecionado, id: this.props.id})
+        this.setState({ selecionado: !this.state.selecionado });
+        this.props.selected({ select: !this.state.selecionado, id: this.props.id })
     }
 
     render() {
         const { name } = this.props;
         return (
             <div>
-                <input type="checkbox" name="" id={name} checked={this.state.selecionado} onChange={this.selected} />
-                {name}
+                <input type="checkbox" name="" id={name}
+                    checked={this.state.selecionado}
+                    onChange={this.selected}
+                    style={{
+                        transform: "scale(1.5)",
+                        margin: "3%"
+                    }} />
+                <label htmlFor={name}>{name}</label>
             </div>
         )
     }

@@ -18,6 +18,7 @@ const Header = (props) => {
         return (
             <div>
             <header className="_Header" style={{textAlign: align}}>
+                {props.children}
                 <h1>
                     {titulo}
                 </h1>

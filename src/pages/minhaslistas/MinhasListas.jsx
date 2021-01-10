@@ -10,7 +10,7 @@ import DB from '../../services/DB';
 
 const MinhasListas = () => {
 
-    const [db, setDataBase] = useState({listas:[]});
+    const [db, setDataBase] = useState({ listas: [] });
 
     useEffect(
         () => {
@@ -21,10 +21,11 @@ const MinhasListas = () => {
                 alert("Você precisa fazer login para continuar");
                 window.location.href = "/login"
             }
-        }, [db]
+        }, []
     )
 
-    const removeItem = async (id) => setDataBase(await DB.removeList(id));
+    const removeItem = async (id) =>
+        DB.removeList(id).then(setDataBase(DB.getSession));
 
     const renderizarListas = () => db.listas.map((lista) =>
     (
@@ -35,7 +36,8 @@ const MinhasListas = () => {
             removeItem={removeItem}
             quantidade={lista.items.length || 0} />
     )
-    )
+    );
+
     const semItens = () => (
         <div className="mensagem-sem-listas"><Link to={{ pathname: "/visualizar-lista", state: [] }}>
             <img src={icon} alt="carrinho-de-compras-triste" />
@@ -46,12 +48,10 @@ const MinhasListas = () => {
             /></Link></div>
     )
 
-    console.log(db);
-
     return (
         <div className="_MinhasListas">
             <Header titulo="Minhas Listas" />
-            {db?.listas?.length !== undefined ? renderizarListas() : semItens()}
+            {db?.listas?.length ? renderizarListas() : semItens()}
             <Link to={{ pathname: "/visualizar-lista", state: [] }}><FloatButtom /></Link>
         </div>
     )

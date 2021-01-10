@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './item.css';
 import Icon from '../../components/icons/commentary.png';
-import DB from '../../services/DB';
 
 const Item = (props) => {
+
+    const [timer, setTimer] = useState();
 
     const prioridade = () => {
         const { prioridade } = props;
@@ -26,13 +27,31 @@ const Item = (props) => {
 
     const cor = prioridade();
 
+
+    const mouseDown = () => {
+        setTimer(setTimeout(() => confirmDelete(), 3500));
+    }
+
+    const mouseUp = () => {
+        clearTimeout(timer);
+    }
+
+    const confirmDelete = () => {
+        const confirm = window.confirm("Deseja excluir o item?");
+        if(confirm){
+            props.removeItem(props.id)
+        }
+    }
+
     return (
-        <div className="_Item" style={{ borderBottom: `4px solid ${cor}` }}>
+        <div className="_Item" style={{ borderBottom: `4px solid ${cor}` }}
+            onMouseDown={mouseDown} onTouchStart={mouseDown}
+            onTouchEnd={mouseUp} onMouseUp={mouseUp}
+            onContextMenu={(e) => e.preventDefault()}>
             <div className="informacoes-item">
                 <span className="nome">Nome: {props.nomeItem}</span>
                 <span className="quantidade">Quantidade: {props.quantidade}</span>
             </div>
-            <span onClick={() => props.removeItem(props.id)}>(X)</span>
             {willRender()}
         </div>
 

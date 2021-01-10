@@ -39,7 +39,7 @@ export default class Compra extends Component {
 
         else
             if (this.state.completed.length) {
-                this.setState({ completed: this.state.completed.filter(item => item != id) });
+                this.setState({ completed: this.state.completed.filter(item => item !== id) });
                 this.setState({ progress: this.percentual(this.state.completed.length - 1) })
             }
     }
@@ -51,17 +51,20 @@ export default class Compra extends Component {
     render() {
 
         return (<div className="_Compra">
-            <Link to="/minhas-listas">
-                <NavigationIcon icon={back}
-                    style={{
-                        float: "left",
-                        backgroundColor: "rgb(255, 54, 54)",
-                        border: "none",
-                        padding: "2%",
-                        fontSize: "1.1em"
-                    }} />
-            </Link>
-            <Header titulo="Lista de Compras" />
+            <Header titulo="Lista de Compras" children={
+                <Link to="/minhas-listas">
+                    <NavigationIcon icon={back}
+                        style={{
+                            float: "left",
+                            border: "none",
+                            padding: "2%",
+                            margin: "3% 2%"
+                        }} 
+                        iconStyle={{
+                            width: "100%"
+                        }}/>
+                </Link>
+            } />
             {
                 this.state.items && (
                     <>
