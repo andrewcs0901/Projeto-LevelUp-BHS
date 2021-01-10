@@ -22,5 +22,5 @@ npm start
 O comando npm install ira baixar os node modules cituados no package JSON
 depois rodar o comando start para iniciar a localhost.
 
-Tem incluido um "Notes dor professionals", esse é um livro gratuido, com o conteudo
+Tem incluido um "Notes dor professionals", esse é um livro gratuito, com o conteúdo
 bem resumido e simples para um bom entendimento
