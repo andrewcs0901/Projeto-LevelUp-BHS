@@ -45,8 +45,8 @@ class Listagem extends Component {
     renderItem(items) {
         let array = [];
         if (items.length) {
-            array.push(<div className="mensagem-arrastar" >
-                Arraste o item para deletar</div>)
+            array[0] = <div className="mensagem-arrastar" key="mensagem-arrastar">
+                Arraste o item para deletar</div>
             items.forEach(item => {
                 array.push(
 
@@ -159,8 +159,11 @@ class Listagem extends Component {
     render() {
         const { items } = this.state;
         return (<div className="visualizar-lista">
-            <div>
-                <Link to={{ pathname: "/minhas-listas", state: this.state }}>
+            <div style={{
+                display: "flex",
+                justifyContent: "space-between"
+            }}>
+                <Link to="/minhas-listas">
                     <Button
                         text={"Voltar"}
                         icon={back}
@@ -172,11 +175,11 @@ class Listagem extends Component {
                             fontSize: "1.1em"
                         }} />
                 </Link>
-                <Link to={{ pathname: "/compra", state: items}}>
+                <Link to={{ pathname: "/compra", state: items }}>
                     <Button
                         text={"Iniciar compra"}
                         icon={cartIcon}
-                        />
+                    />
                 </Link>
             </div>
 
@@ -188,23 +191,33 @@ class Listagem extends Component {
                 labelText="Nome da lista:"
                 labelFor={"nome_lista"} />
 
-            {this.listarItems(items)}
-            <Link to={{ pathname: "/adicionar-item", state: this.state.id }}><FloatButtom /></Link>
-            {(items && items.length) || (this.state.nome !== undefined) ?
-                <div className="salvar">
-                    <Button text="Salvar" submit={this.submit}
+            {this.state.nome && items && (<>{this.listarItems(items)}
+                < Link to={{ pathname: "/adicionar-item", state: this.state.id }}><FloatButtom /></Link>
+            </>)
+            }
+            {
+                (items && items.length) || (this.state.nome) ?
+                    <div className="salvar"
                         style={{
-                            backgroundColor: "#136717",
-                            border: "none",
-                            padding: "4%",
-                            fontSize: "1.2em",
-                            margin: "0px auto",
-                            fontWeight: "bolder",
-                            color: "white",
-                            letterSpacing: "2px"
-                        }} />
-                </div> : ""}
-        </div>)
+                            letterSpacing: "2px",
+                            position: "fixed",
+                            bottom: "8px",
+                            left: "30%",
+                            width: "15%"
+                        }}>
+                        <Button text="Salvar" submit={this.submit}
+                            style={{
+                                backgroundColor: "#136717",
+                                border: "none",
+                                padding: "20%",
+                                fontSize: "1.2em",
+                                margin: "0px auto",
+                                fontWeight: "bolder",
+                                color: "white"
+                            }} />
+                    </div> : ""
+            }
+        </div >)
     }
 
 }

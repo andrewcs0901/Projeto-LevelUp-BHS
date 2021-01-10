@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Content from './components/Content';
-import { BrowserRouter, Route} from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom'
 import NotFound404 from './pages/NotFound404';
 import Listagem from './pages/listagem/Listagem';
 import BoasVindas from './pages/boasvindas/BoasVindas'
@@ -11,13 +11,50 @@ import AdicionarItem from './pages/adicionaritem/AdicionarItem';
 import MinhasListas from './pages/minhaslistas/MinhasListas';
 import Compra from './pages/compra/Compra';
 
+export const [rootURL, listsURL, loginURL, signInURL, addItemURL, viewListURL, buyListURL, notFoundURL] = ["/", "/minhas-listas", "/login", "/cadastro", "/adicionar-item", "/visualizar-lista", "/compra", "/nao-encontrado"]
+
+const pages = [
+    {
+        path: rootURL,
+        component: BoasVindas
+    },
+    {
+        path: listsURL,
+        component: MinhasListas
+    },
+    {
+        path: loginURL,
+        component: Login
+    },
+    {
+        path: signInURL,
+        component: Cadastro
+    },
+    {
+        path: addItemURL,
+        component: AdicionarItem
+    },
+    {
+        path: viewListURL,
+        component: Listagem
+    },
+    {
+        path: buyListURL,
+        component: Compra
+    },
+    {
+        path: notFoundURL,
+        component: NotFound404
+    },
+]
+
 class App extends Component {
 
-    constructor(props){
+    constructor(props) {
         super(props);
         let database = localStorage.getItem("usuario_logado")
-        if(database){
-            this.setState ={
+        if (database) {
+            this.setState = {
                 data: database
             }
         }
@@ -28,14 +65,7 @@ class App extends Component {
 
             <div id="container">
                 <BrowserRouter>
-                    <Route exact path="/" component={BoasVindas} />
-                    <Route exact path="/visualizar-lista" component={Listagem} />
-                    <Route exact path="/minhas-listas" component={MinhasListas} />
-                    <Route exact path="/nao-encontrado" component={NotFound404} />
-                    <Route exact path="/login" component={Login} />
-                    <Route exact path="/cadastro" component={Cadastro} />
-                    <Route exact path="/adicionar-item" component={AdicionarItem} />
-                    <Route exact path="/compra" component={Compra} />
+                    {pages.map( page => <Route exact path={page.path} component={page.component} key={page.path}/>)}
                 </BrowserRouter>
                 <Content />
             </div>
