@@ -1,26 +1,14 @@
 # Projeto-LevelUp-BHS
 
-## Observações do projeto
-Coloque apenas os codigos source do projeto, é importante colcocar o JSON com os packages
+Solução de proposta para o problema de esquecimento de produtos:
+- Gestão de lista de compras;
+- Progressão da quantidade de itens coletados durante as compras;
+- Integração com serviço em nuvem (todo);
+- Compartilhamento de lista online (todo).
 
-Depois de baixar o repodistorio entrar no repositorio verificar se você tem node e mpn
+Através destes requisitos, os usuários poderão estar compartilhando esta lista com conhecidos para buscar os itens faltantes de uma compra.
 
-```
-node -v
-npm -v
-```
-OBS: o npx ja vem com o npm se a versao for acima de 5.2+
-
-Depois de verificar se existe as ferramentas entrar no repositorio
-e rodar os comandos da npm
-
-```
-npm install
-npm start
-```
-
-O comando npm install ira baixar os node modules cituados no package JSON
-depois rodar o comando start para iniciar a localhost.
-
-Tem incluido um "Notes dor professionals", esse é um livro gratuito, com o conteúdo
-bem resumido e simples para um bom entendimento
+## Instruções para execução:
+- Abra o terminal contendo o código fonte do repositório;
+- Execute ```yarn``` e aguarde;
+- Execute ```yarn start``` e logo em seguida abra o navegador no endereço localhost:3000/
